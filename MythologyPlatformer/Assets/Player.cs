@@ -23,23 +23,50 @@ public class Player : MonoBehaviour
     private bool Jump;
 
     [SerializeField]
+    private float fallMultiplier = 2.5f;
+
+    [SerializeField]
+    private float MinJumpMultiplier = 2f;
+
+    [SerializeField]
     private float JumpForce;
+
+    [SerializeField]
+    private int Health;
+
+    [SerializeField]
+    private int MaxHealth;
+
+    private GameObject SpawnPoint;
 
     void Start()
     {
         PlayerRigidBody = GetComponent<Rigidbody2D>();
+        SpawnPoint = GameObject.Find("SpawnPoint");
     }
 
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+
         InputManager();
+        Death();
+        Movement(horizontal);
+
+        if (PlayerRigidBody.velocity.y < 0)
+        {
+            PlayerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (PlayerRigidBody.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            PlayerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (MinJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        
         isGrounded = IsGrounded();
-        Movement(horizontal);
         ResetValues();
 
         if (Jump == true)
@@ -91,5 +118,14 @@ public class Player : MonoBehaviour
     private void ResetValues()
     {
         Jump = false;
+    }
+
+    void Death()
+    {
+        if (Health <= 0)
+        {
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+            Health = MaxHealth;
+        }
     }
 }
