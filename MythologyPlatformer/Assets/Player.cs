@@ -128,4 +128,12 @@ public class Player : MonoBehaviour
             Health = MaxHealth;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D Other)
+    {
+        if (Other.gameObject.name == "KillBox")
+        {
+            Health = 0;
+        }
+    }
 }
