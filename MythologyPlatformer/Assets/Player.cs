@@ -38,11 +38,15 @@ public class Player : MonoBehaviour
     private int MaxHealth;
 
     private GameObject SpawnPoint;
+    private GameObject PlayerAttackCollider;
+    private BoxCollider2D PlayerAttackColliderC;
 
     void Start()
     {
         PlayerRigidBody = GetComponent<Rigidbody2D>();
         SpawnPoint = GameObject.Find("SpawnPoint");
+        PlayerAttackCollider = GameObject.Find("PlayerAttackCollider");
+        PlayerAttackColliderC = PlayerAttackCollider.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -60,6 +64,16 @@ public class Player : MonoBehaviour
         else if (PlayerRigidBody.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             PlayerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (MinJumpMultiplier - 1) * Time.deltaTime;
+        }
+
+        if (PlayerRigidBody.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (PlayerRigidBody.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
@@ -134,6 +148,14 @@ public class Player : MonoBehaviour
         if (Other.gameObject.name == "KillBox")
         {
             Health = 0;
+        }
+    }
+
+    void AttackManager()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            PlayerAttackColliderC.enabled = PlayerAttackColliderC.enabled;
         }
     }
 }
