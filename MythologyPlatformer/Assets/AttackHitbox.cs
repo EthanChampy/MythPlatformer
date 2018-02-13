@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Rigidbody2D EnemyRigidBody = other.gameObject.GetComponent<Rigidbody2D>();
+        }
+    }
 }

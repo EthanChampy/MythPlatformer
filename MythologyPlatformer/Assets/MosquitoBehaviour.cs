@@ -19,11 +19,13 @@ public class MosquitoBehaviour : MonoBehaviour {
     public float spawnx;
     public float spawny;
 
+
+
     GameObject Player;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+
     }
 
     void Update ()
