@@ -25,7 +25,6 @@ public class MosquitoBehaviour : MonoBehaviour {
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     void Update ()
@@ -35,13 +34,7 @@ public class MosquitoBehaviour : MonoBehaviour {
         float NEWx = Mathf.Cos(TimeCount)*width + spawnx;
         float NEWy = Mathf.Sin(TimeCount)*height + spawny;
 
-        if (Sensor.GetComponent<SensorScript>().CollisionCount <= 0)
-        {
-            transform.position = new Vector2(NEWx, NEWy);
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, 0.02f);
-        }
+        transform.position = new Vector2(NEWx, NEWy);
+
 	}
 }

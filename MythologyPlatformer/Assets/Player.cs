@@ -146,6 +146,10 @@ public class Player : MonoBehaviour
         {
             Health = 0;
         }
+        if (Other.gameObject.name == "Mosquito")
+        {
+            Health += -1;
+        }
     }
 
     void AttackManager()
