@@ -38,21 +38,18 @@ public class Player : MonoBehaviour
     private int MaxHealth;
 
     private GameObject SpawnPoint;
-    private GameObject PlayerAttackCollider;
-    private BoxCollider2D PlayerAttackColliderC;
 
     void Start()
     {
         PlayerRigidBody = GetComponent<Rigidbody2D>();
         SpawnPoint = GameObject.Find("SpawnPoint");
-        PlayerAttackCollider = GameObject.Find("PlayerAttackCollider");
-        PlayerAttackColliderC = PlayerAttackCollider.GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
 
+        AttackManager();
         InputManager();
         Death();
         Movement(horizontal);
@@ -153,9 +150,9 @@ public class Player : MonoBehaviour
 
     void AttackManager()
     {
-        if (Input.GetKeyDown("p"))
+        if (Input.GetButtonDown("Attack"))
         {
-            PlayerAttackColliderC.enabled = PlayerAttackColliderC.enabled;
+            print("Attack");
         }
     }
 }
