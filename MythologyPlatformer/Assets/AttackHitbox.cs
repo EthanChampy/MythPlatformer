@@ -6,10 +6,11 @@ public class AttackHitbox : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.name == "Mosquito" && other.gameObject.GetComponent<MosquitoBehaviour>().Invincible == false)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Rigidbody2D EnemyRigidBody = other.gameObject.GetComponent<Rigidbody2D>();
+            other.gameObject.GetComponent<MosquitoBehaviour>().MosquitoHealth += -4;
+            other.gameObject.GetComponent<MosquitoBehaviour>().Invincible = true;
+            other.gameObject.GetComponent<MosquitoBehaviour>().Invoke("invincibleTimer", 1);
         }
     }
 }

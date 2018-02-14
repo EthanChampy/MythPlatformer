@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MosquitoBehaviour : MonoBehaviour {
 
-    private int MosquitoHealth = 14;
-    private int OnHostDamage = 2;
-    private int OffHostDamage = 4;
+    public int MosquitoHealth = 14;
     private int NeedleDamage = 1;
+
+    public bool Invincible = false;
 
     public Collider2D Sensor;
 
@@ -36,5 +36,14 @@ public class MosquitoBehaviour : MonoBehaviour {
 
         transform.position = new Vector2(NEWx, NEWy);
 
+        if (MosquitoHealth <= 0)
+        {
+            Destroy (this.gameObject);
+        }
 	}
+
+    void invincibleTimer()
+    {
+        Invincible = false;
+    }
 }
