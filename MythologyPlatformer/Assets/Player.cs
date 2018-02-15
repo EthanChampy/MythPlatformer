@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
 
     private GameObject SpawnPoint;
 
+    public bool Invincible = false;
+
     void Start()
     {
         PlayerRigidBody = GetComponent<Rigidbody2D>();
@@ -142,13 +144,37 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D Other)
     {
-        if (Other.gameObject.name == "KillBox")
+        if (Other.gameObject.tag == "KillBox")
         {
             Health = 0;
         }
-        if (Other.gameObject.name == "Mosquito")
+        if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
             Health += -1;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D Other)
+    {
+        if (Other.gameObject.name == "HealthPack")
+        {
+            if (Health < MaxHealth)
+            {
+                Health += 1;
+                Destroy(Other.gameObject);
+            }
+        }
+        if (Other.gameObject.name == "DoubleDamage")
+        {
+            GameObject AttackHitbox = GameObject.Find("AttackHitbox");
+            AttackHitbox.GetComponent<AttackHitbox>().DamageMult = 2;
+            Destroy(Other.gameObject);
+        }
+        if (Other.gameObject.tag == "MosqZomb" && Invincible == false)
+        {
+            Health += -2;
+            Invincible = true;
+            Invoke("invincibleTimer", 1.5f);
         }
     }
 
@@ -158,5 +184,10 @@ public class Player : MonoBehaviour
         {
             print("Attack");
         }
+    }
+
+    void invincibleTimer()
+    {
+        Invincible = false;
     }
 }
