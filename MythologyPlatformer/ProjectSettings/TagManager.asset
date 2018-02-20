@@ -8,6 +8,7 @@ TagManager:
   - Mosquito
   - MosqZomb
   - KillBox
+  - Warrior
   layers:
   - Default
   - TransparentFX

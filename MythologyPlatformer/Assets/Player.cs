@@ -156,13 +156,18 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Other)
     {
-        if (Other.gameObject.name == "HealthPack")
+        if (Other.gameObject.name == "Apples")
         {
             if (Health < MaxHealth)
             {
                 Health += 1;
                 Destroy(Other.gameObject);
             }
+        }
+        if (Other.gameObject.name == "Shield")
+        {
+                Health += 1;
+                Destroy(Other.gameObject);
         }
         if (Other.gameObject.name == "DoubleDamage")
         {
