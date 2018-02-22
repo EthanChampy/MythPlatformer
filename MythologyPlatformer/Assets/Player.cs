@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float JumpForce;
 
-    [SerializeField]
-    private int Health;
+    public int Health;
+    public int Armor;
 
     [SerializeField]
     private int MaxHealth;
@@ -41,8 +41,10 @@ public class Player : MonoBehaviour
 
     public bool Invincible = false;
 
+    public Animator Anim;
     void Start()
     {
+        Anim = GetComponent<Animator>();
         PlayerRigidBody = GetComponent<Rigidbody2D>();
         SpawnPoint = GameObject.Find("SpawnPoint");
     }
@@ -90,6 +92,7 @@ public class Player : MonoBehaviour
 
     private void Movement(float horizontal)
     {
+        Anim.SetFloat("MovementSpeed", Mathf.Abs(Input.GetAxis("Horizontal")));
         PlayerRigidBody.velocity = new Vector2(horizontal * MovementSpeed, PlayerRigidBody.velocity.y);
 
         if (isGrounded && Jump)
@@ -150,7 +153,22 @@ public class Player : MonoBehaviour
         }
         if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
-            Health += -1;
+            if (Armor <= 0)
+            {
+                Health += -1;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -1;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
         }
     }
 
@@ -166,7 +184,7 @@ public class Player : MonoBehaviour
         }
         if (Other.gameObject.name == "Shield")
         {
-                Health += 1;
+            Armor += 1;
                 Destroy(Other.gameObject);
         }
         if (Other.gameObject.name == "DoubleDamage")
@@ -177,9 +195,41 @@ public class Player : MonoBehaviour
         }
         if (Other.gameObject.tag == "MosqZomb" && Invincible == false)
         {
-            Health += -2;
-            Invincible = true;
-            Invoke("invincibleTimer", 1.5f);
+            if (Armor <= 0)
+            {
+                Health += -2;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -2;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+        if (Other.gameObject.tag == "Warrior" && Invincible == false)
+        {
+            if (Armor <= 0)
+            {
+                Health += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
         }
     }
 

@@ -104,7 +104,7 @@ MonoBehaviour:
   MoveSpeed: 1.2
   TimeMoving: 1
   TimeCount: 0
-  Mosquito: {fileID: 1087887207569250, guid: 4676b192d62c0124ba801df95d032c99, type: 2}
+  Mosquito: {fileID: 1104016185283942, guid: 7572960b6ee94fb438dad3ee0c061507, type: 2}
   Invincible: 0
 --- !u!212 &212417701399688094
 SpriteRenderer:
