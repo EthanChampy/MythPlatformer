@@ -14,6 +14,18 @@ public class AttackHitbox : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    void Update()
+    {
+        if (Player.transform.localScale.x == 1)
+        {
+            this.transform.position = Player.transform.position + new Vector3(0.1f,0,0);
+        }
+
+        if (Player.transform.localScale.x == -1)
+        {
+            this.transform.position = Player.transform.position + new Vector3(-0.1f, 0, 0);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Mosquito" && other.gameObject.GetComponent<MosquitoBehaviour>().Invincible == false)

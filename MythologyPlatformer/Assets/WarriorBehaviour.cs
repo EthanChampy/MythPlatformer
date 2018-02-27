@@ -44,6 +44,11 @@ public class WarriorBehaviour : MonoBehaviour {
             TimeCount = 0;
             ScaleState = false;
         }
+
+        if(WarriorHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void invincibleTimer()

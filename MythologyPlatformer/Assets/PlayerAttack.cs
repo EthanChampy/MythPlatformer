@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour {
     private bool Attacking = false;
 
     private float AttackCurrCooldown;
-    private float AttackMaxCooldown = 0.3f;
+    private float AttackMaxCooldown = 0.5f;
 
     public Collider2D AttackHitbox;
 
