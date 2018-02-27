@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
 
-    private bool Attacking = false;
+    public bool Attacking = false;
 
-    private float AttackCurrCooldown;
-    private float AttackMaxCooldown = 0.5f;
+    public float AttackCurrCooldown;
+    public float AttackMaxCooldown = 0.9f;
 
     public Collider2D AttackHitbox;
 
@@ -37,5 +37,5 @@ public class PlayerAttack : MonoBehaviour {
                 AttackHitbox.enabled = false;
             }
         }
-	}
+    }
 }

@@ -53,10 +53,11 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-        AttackManager();
         InputManager();
         Death();
         Movement(horizontal);
+
+        Anim.SetBool("Attack", GetComponent<PlayerAttack>().Attacking);
 
         if (PlayerRigidBody.velocity.y < 0)
         {
@@ -230,14 +231,6 @@ public class Player : MonoBehaviour
                     Armor = 0;
                 }
             }
-        }
-    }
-
-    void AttackManager()
-    {
-        if (Input.GetButtonDown("Attack"))
-        {
-            print("Attack");
         }
     }
 
