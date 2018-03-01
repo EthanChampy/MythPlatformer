@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("j") && !Attacking)
+        if (Input.GetButtonDown("Attack") && !Attacking)
         {
             Attacking = true;
             AttackCurrCooldown = AttackMaxCooldown;

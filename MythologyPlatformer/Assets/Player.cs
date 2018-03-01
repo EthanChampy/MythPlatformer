@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
 
     private void InputManager()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             Jump = true;
         }
@@ -151,6 +151,7 @@ public class Player : MonoBehaviour
         if (Other.gameObject.tag == "KillBox")
         {
             Health = 0;
+            print("Fuck this code");
         }
         if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
