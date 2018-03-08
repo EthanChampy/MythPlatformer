@@ -11,30 +11,37 @@ public class PlayerAttack : MonoBehaviour {
 
     public Collider2D AttackHitbox;
 
-	void Awake () {
+    public GameObject Player;
+
+	void Awake ()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
         AttackHitbox.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Attack") && !Attacking)
+        if (Player.GetComponent<Player>().DeathBool == false)
         {
-            Attacking = true;
-            AttackCurrCooldown = AttackMaxCooldown;
-
-            AttackHitbox.enabled = true;
-        }
-
-        if (Attacking)
-        {
-            if (AttackCurrCooldown > 0)
+            if (Input.GetButtonDown("Attack") && !Attacking)
             {
-                AttackCurrCooldown -= Time.deltaTime;
+                Attacking = true;
+                AttackCurrCooldown = AttackMaxCooldown;
+
+                AttackHitbox.enabled = true;
             }
-            else
+
+            if (Attacking)
             {
-                Attacking = false;
-                AttackHitbox.enabled = false;
+                if (AttackCurrCooldown > 0)
+                {
+                    AttackCurrCooldown -= Time.deltaTime;
+                }
+                else
+                {
+                    Attacking = false;
+                    AttackHitbox.enabled = false;
+                }
             }
         }
     }

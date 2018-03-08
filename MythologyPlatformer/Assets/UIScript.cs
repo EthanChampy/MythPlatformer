@@ -25,5 +25,9 @@ public class UIScript : MonoBehaviour {
         {
             text.text = "" + Player.GetComponent<Player>().Armor;
         }
+        if (text.name == "LifeDisplay")
+        {
+            text.text = "x" + Player.GetComponent<Player>().Lives;
+        }
     }
 }

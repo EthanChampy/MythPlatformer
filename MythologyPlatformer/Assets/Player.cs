@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
     private GameObject SpawnPoint;
 
     public bool Invincible = false;
-
+    public bool DeathBool = false;
+    public int Lives = 3;
     public Animator Anim;
     void Start()
     {
@@ -53,11 +54,20 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-        InputManager();
-        Death();
-        Movement(horizontal);
+        if (DeathBool == false)
+        {
+            InputManager();
+            Movement(horizontal);
+        }
 
         Anim.SetBool("Attack", GetComponent<PlayerAttack>().Attacking);
+
+        if (Health <= 0)
+        {
+            DeathBool = true;
+            Anim.SetBool("DeathBool", DeathBool);
+            Invoke("Death", 0.9f);
+        }
 
         if (PlayerRigidBody.velocity.y < 0)
         {
@@ -139,8 +149,12 @@ public class Player : MonoBehaviour
 
     void Death()
     {
-        if (Health <= 0)
+        if (DeathBool == true)
         {
+            Lives += -1;
+            PlayerRigidBody.velocity = new Vector2(0f, 0f);
+            DeathBool = false;
+            Anim.SetBool("DeathBool", DeathBool);
             this.gameObject.transform.position = SpawnPoint.transform.position;
             Health = MaxHealth;
         }
@@ -151,7 +165,6 @@ public class Player : MonoBehaviour
         if (Other.gameObject.tag == "KillBox")
         {
             Health = 0;
-            print("Fuck this code");
         }
         if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
