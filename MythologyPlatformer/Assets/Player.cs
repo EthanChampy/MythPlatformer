@@ -164,7 +164,9 @@ public class Player : MonoBehaviour
     {
         if (Other.gameObject.tag == "KillBox")
         {
-            Health = 0;
+            Armor = 0;
+            DeathBool = true;
+            Invoke("Death", 0f);
         }
         if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
