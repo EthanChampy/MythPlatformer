@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     public int Health;
     public int Armor;
+    public int Key;
 
     [SerializeField]
     private int MaxHealth;
@@ -191,26 +192,35 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Other)
     {
-        if (Other.gameObject.name == "Apples")
+        if (Other.gameObject.name == "Apples") //Health Item
         {
+            if (Health == 5)
+            {
+                Health = MaxHealth;
+            }
+            if (Health == 4)
+            {
+                Health = MaxHealth;
+            }
             if (Health < MaxHealth)
             {
-                Health += 1;
+                if (Health <= 3)
+                Health += 3;
                 Destroy(Other.gameObject);
             }
         }
-        if (Other.gameObject.name == "Shield")
+        if (Other.gameObject.name == "Shield") // Armor Item
         {
-            Armor += 1;
+            Armor += 3;
                 Destroy(Other.gameObject);
         }
-        if (Other.gameObject.name == "DoubleDamage")
+        if (Other.gameObject.name == "DoubleDamage") // Damage Item
         {
             GameObject AttackHitbox = GameObject.Find("AttackHitbox");
             AttackHitbox.GetComponent<AttackHitbox>().DamageMult = 2;
             Destroy(Other.gameObject);
         }
-        if (Other.gameObject.tag == "MosqZomb" && Invincible == false)
+        if (Other.gameObject.tag == "MosqZomb" && Invincible == false) //Zombie damage
         {
             if (Armor <= 0)
             {
@@ -229,7 +239,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        if (Other.gameObject.tag == "Warrior" && Invincible == false)
+        if (Other.gameObject.tag == "Warrior" && Invincible == false) //Warrior Damage
         {
             if (Armor <= 0)
             {
@@ -248,6 +258,64 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnTriggerStay2D (Collider2D Other)
+    {
+        if (Other.gameObject.name == "FamineDoor" && Input.GetButtonDown("Up")) //Doors
+        {
+            this.gameObject.transform.position = new Vector3(-15.987f, 18.992f, 0);
+        }
+        if (Other.gameObject.name == "DeathDoor" && Input.GetButtonDown("Up"))
+        {
+            this.gameObject.transform.position = new Vector3(-12.733f, -18.394f, 0);
+        }
+        if (Other.gameObject.name == "WarDoor" && Input.GetButtonDown("Up"))
+        {
+            this.gameObject.transform.position = new Vector3(67.047f, -16.64f, 0);
+        }
+        if (Other.gameObject.name == "PestilenceDoor" && Input.GetButtonDown("Up"))
+        {
+            this.gameObject.transform.position = new Vector3(21.918f, -10.798f, 0);
+        }
+
+
+        if (Other.gameObject.tag == "KeyHolderWar" && Input.GetButtonDown("Up"))
+        {
+            Key += 1;
+            GameObject WarLock = GameObject.Find("WarLock");
+            Destroy(WarLock);
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+            Destroy(Other.gameObject);
+        }
+
+        if (Other.gameObject.tag == "KeyHolderDeath" && Input.GetButtonDown("Up"))
+        {
+            Key += 1;
+            GameObject DeathLock = GameObject.Find("DeathLock");
+            Destroy(DeathLock);
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+            Destroy(Other.gameObject);
+        }
+
+        if (Other.gameObject.tag == "KeyHolderPest" && Input.GetButtonDown("Up"))
+        {
+            Key += 1;
+            GameObject PestLock = GameObject.Find("PestLock");
+            Destroy(PestLock);
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+            Destroy(Other.gameObject);
+        }
+
+        if (Other.gameObject.tag == "KeyHolderFamine" && Input.GetButtonDown("Up"))
+        {
+            Key += 1;
+            GameObject FamineLock = GameObject.Find("FamineLock");
+            Destroy(FamineLock);
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+            Destroy(Other.gameObject);
+        }
+
     }
 
     void invincibleTimer()

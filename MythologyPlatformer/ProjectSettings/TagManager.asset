@@ -9,6 +9,10 @@ TagManager:
   - MosqZomb
   - KillBox
   - Warrior
+  - KeyHolderWar
+  - KeyHolderPest
+  - KeyHolderDeath
+  - KeyHolderFamine
   layers:
   - Default
   - TransparentFX

@@ -18,14 +18,16 @@ public class MosqZombieBehaviour : MonoBehaviour {
     private Vector3 NegativeScale = new Vector3(-1, 1, 1);
     Rigidbody2D ZombRB;
 
+    GameObject Player;
     public GameObject Mosquito;
-
+    
     public bool Invincible;
     // Use this for initialization
     void Start ()
     {
         ZombRB = GetComponent<Rigidbody2D>();
-	}
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update ()

@@ -38,6 +38,7 @@ public class MosquitoBehaviour : MonoBehaviour {
 
         if (MosquitoHealth <= 0)
         {
+            Player.GetComponent<Player>().Armor += 1;
             Destroy (this.gameObject);
         }
 	}

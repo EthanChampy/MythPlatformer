@@ -18,10 +18,12 @@ public class WarriorBehaviour : MonoBehaviour {
     private Vector3 NegativeScale = new Vector3(-1, 1, 1);
     Rigidbody2D WarriorRB;
 
+    GameObject Player;
     public bool Invincible;
 
     // Use this for initialization
     void Start () {
+        Player = GameObject.FindGameObjectWithTag("Player");
         WarriorRB = GetComponent<Rigidbody2D>();
     }
 	
@@ -47,6 +49,7 @@ public class WarriorBehaviour : MonoBehaviour {
 
         if(WarriorHealth <= 0)
         {
+            Player.GetComponent<Player>().Armor += 1;
             Destroy(this.gameObject);
         }
     }
