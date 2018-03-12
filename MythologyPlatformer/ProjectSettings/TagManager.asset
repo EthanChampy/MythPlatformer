@@ -13,6 +13,7 @@ TagManager:
   - KeyHolderPest
   - KeyHolderDeath
   - KeyHolderFamine
+  - Blob
   layers:
   - Default
   - TransparentFX

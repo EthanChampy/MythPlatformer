@@ -258,6 +258,25 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        if (Other.gameObject.tag == "Blob" && Invincible == false) //Blob Damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
     }
 
     void OnTriggerStay2D (Collider2D Other)

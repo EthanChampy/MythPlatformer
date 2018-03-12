@@ -48,5 +48,12 @@ public class AttackHitbox : MonoBehaviour {
             other.gameObject.GetComponent<WarriorBehaviour>().Invincible = true;
             other.gameObject.GetComponent<WarriorBehaviour>().Invoke("invincibleTimer", 1);
         }
+
+        if (other.gameObject.tag == "Blob" && other.gameObject.GetComponent<BlobBehaviour>().Invincible == false)
+        {
+            other.gameObject.GetComponent<BlobBehaviour>().BlobHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<BlobBehaviour>().Invincible = true;
+            other.gameObject.GetComponent<BlobBehaviour>().Invoke("invincibleTimer", 1);
+        }
     }
 }
