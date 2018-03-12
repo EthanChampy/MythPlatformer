@@ -55,5 +55,19 @@ public class AttackHitbox : MonoBehaviour {
             other.gameObject.GetComponent<BlobBehaviour>().Invincible = true;
             other.gameObject.GetComponent<BlobBehaviour>().Invoke("invincibleTimer", 1);
         }
+
+        if (other.gameObject.tag == "Skeleton" && other.gameObject.GetComponent<SkeletonBehaviour>().Invincible == false)
+        {
+            other.gameObject.GetComponent<SkeletonBehaviour>().SkeleHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<SkeletonBehaviour>().Invincible = true;
+            other.gameObject.GetComponent<SkeletonBehaviour>().Invoke("invincibleTimer", 1);
+        }
+
+        if (other.gameObject.tag == "SkeletonMelee" && other.gameObject.GetComponent<SkeleMelee>().Invincible == false)
+        {
+            other.gameObject.GetComponent<SkeleMelee>().SkeleHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<SkeleMelee>().Invincible = true;
+            other.gameObject.GetComponent<SkeleMelee>().Invoke("invincibleTimer", 1);
+        }
     }
 }

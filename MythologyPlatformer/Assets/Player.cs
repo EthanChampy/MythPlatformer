@@ -277,6 +277,41 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if (Other.gameObject.tag == "Skeleton" && Invincible == false) //Skeleton Damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -4;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -4;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+        if (Other.gameObject.tag == "SkeleHitbox" && Invincible == false) //SkeletonAXE Damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -Health;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -Armor;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+        }
     }
 
     void OnTriggerStay2D (Collider2D Other)
