@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorBehaviour : MonoBehaviour {
+public class Pestilence : MonoBehaviour {
 
-    public int WarriorHealth = 30;
+    public int PestHealth = 20;
 
-    public float MoveSpeed = 1f;
+    Rigidbody2D PestRB;
+
+    public GameObject War;
+    GameObject Player;
+
+    public float MoveSpeed = 1.2f;
     public float TimeMoving = 5;
 
     public float TimeCount = 0;
@@ -15,22 +20,21 @@ public class WarriorBehaviour : MonoBehaviour {
 
     private Vector3 PositiveScale = new Vector3(1, 1, 1);
     private Vector3 NegativeScale = new Vector3(-1, 1, 1);
-    Rigidbody2D WarriorRB;
 
-    GameObject Player;
     public bool Invincible;
-
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        PestRB = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        WarriorRB = GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         TimeCount += Time.deltaTime;
 
-        WarriorRB.velocity = new Vector2(MoveSpeed * transform.localScale.x, WarriorRB.velocity.y);
+        PestRB.velocity = new Vector2(MoveSpeed * transform.localScale.x, PestRB.velocity.y);
 
         if (TimeCount >= TimeMoving && ScaleState == false)
         {
@@ -46,9 +50,9 @@ public class WarriorBehaviour : MonoBehaviour {
             ScaleState = false;
         }
 
-        if(WarriorHealth <= 0)
+        if (PestHealth <= 0)
         {
-            Player.GetComponent<Player>().Armor += 1;
+            Instantiate(War, new Vector3(-3.19f, -2.336f, 0), Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

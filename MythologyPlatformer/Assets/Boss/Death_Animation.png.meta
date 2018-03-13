@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: 9efbe5311d8b711408f1f26fee111c7f
-timeCreated: 1520947605
+guid: 12d15a2d056b82e4a9f006b779520fd4
+timeCreated: 1520946678
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sprite6_strip15_0
-    21300002: sprite6_strip15_1
-    21300004: sprite6_strip15_2
-    21300006: sprite6_strip15_3
-    21300008: sprite6_strip15_4
-    21300010: sprite6_strip15_5
-    21300012: sprite6_strip15_6
-    21300014: sprite6_strip15_7
-    21300016: sprite6_strip15_8
-    21300018: sprite6_strip15_9
-    21300020: sprite6_strip15_10
+    21300000: Death_Animation_0
+    21300002: Death_Animation_1
+    21300004: Death_Animation_2
+    21300006: Death_Animation_3
+    21300008: Death_Animation_7
+    21300010: Death_Animation_8
+    21300012: Death_Animation_9
+    21300014: Death_Animation_10
+    21300016: Death_Animation_11
+    21300018: Death_Animation_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -94,155 +93,141 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprite6_strip15_0
+      name: Death_Animation_0
       rect:
         serializedVersion: 2
         x: 21
-        y: 0
-        width: 19
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 87
+        width: 80
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_1
+      name: Death_Animation_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 0
-        width: 7
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 144
+        y: 87
+        width: 79
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_2
+      name: Death_Animation_2
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 9
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 269
+        y: 87
+        width: 78
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_3
+      name: Death_Animation_3
       rect:
         serializedVersion: 2
-        x: 77
-        y: 0
-        width: 11
-        height: 21
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 393
+        y: 87
+        width: 81
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_4
+      name: Death_Animation_7
       rect:
         serializedVersion: 2
-        x: 91
-        y: 0
-        width: 13
-        height: 25
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 517
+        y: 87
+        width: 77
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_5
+      name: Death_Animation_8
       rect:
         serializedVersion: 2
-        x: 105
-        y: 0
-        width: 15
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 25
+        y: 7
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_6
+      name: Death_Animation_9
       rect:
         serializedVersion: 2
-        x: 121
-        y: 0
-        width: 13
-        height: 25
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 147
+        y: 7
+        width: 65
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_7
+      name: Death_Animation_10
       rect:
         serializedVersion: 2
-        x: 137
-        y: 0
-        width: 11
-        height: 21
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 268
+        y: 7
+        width: 68
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_8
+      name: Death_Animation_11
       rect:
         serializedVersion: 2
-        x: 153
-        y: 0
-        width: 9
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 390
+        y: 7
+        width: 75
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite6_strip15_9
+      name: Death_Animation_12
       rect:
         serializedVersion: 2
-        x: 169
-        y: 0
-        width: 7
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sprite6_strip15_10
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 0
-        width: 19
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 7
+        width: 81
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -17,6 +17,12 @@ TagManager:
   - Skeleton
   - SkeleHitbox
   - SkeletonMelee
+  - Pestilence
+  - Vine
+  - War
+  - MegaBlob
+  - Famine
+  - Death
   layers:
   - Default
   - TransparentFX

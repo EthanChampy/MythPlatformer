@@ -220,6 +220,107 @@ public class Player : MonoBehaviour
             AttackHitbox.GetComponent<AttackHitbox>().DamageMult = 2;
             Destroy(Other.gameObject);
         }
+
+        if (Other.gameObject.tag == "Vine" && Invincible == false) //PEST Vine damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -2;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -2;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+
+        if (Other.gameObject.tag == "Pestilence" && Invincible == false) //PEST Boss damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -5;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -5;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+
+        if (Other.gameObject.tag == "War" && Invincible == false) //WAR Boss damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -3;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+
+        if (Other.gameObject.tag == "Famine" && Invincible == false) //FAMINE Boss damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -4;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -4;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+
+        if (Other.gameObject.tag == "Death" && Invincible == false) //DEATH Boss damage
+        {
+            if (Armor <= 0)
+            {
+                Health += -5;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+            }
+            if (Armor > 0)
+            {
+                Armor += -5;
+                Invincible = true;
+                Invoke("invincibleTimer", 1.5f);
+                if (Armor < 0)
+                {
+                    Armor = 0;
+                }
+            }
+        }
+
         if (Other.gameObject.tag == "MosqZomb" && Invincible == false) //Zombie damage
         {
             if (Armor <= 0)

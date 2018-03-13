@@ -56,6 +56,13 @@ public class AttackHitbox : MonoBehaviour {
             other.gameObject.GetComponent<BlobBehaviour>().Invoke("invincibleTimer", 1);
         }
 
+        if (other.gameObject.tag == "MegaBlob" && other.gameObject.GetComponent<MegaBlob>().Invincible == false)
+        {
+            other.gameObject.GetComponent<MegaBlob>().BlobHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<MegaBlob>().Invincible = true;
+            other.gameObject.GetComponent<MegaBlob>().Invoke("invincibleTimer", 1);
+        }
+
         if (other.gameObject.tag == "Skeleton" && other.gameObject.GetComponent<SkeletonBehaviour>().Invincible == false)
         {
             other.gameObject.GetComponent<SkeletonBehaviour>().SkeleHealth += -(SwordDamage * DamageMult);
@@ -68,6 +75,34 @@ public class AttackHitbox : MonoBehaviour {
             other.gameObject.GetComponent<SkeleMelee>().SkeleHealth += -(SwordDamage * DamageMult);
             other.gameObject.GetComponent<SkeleMelee>().Invincible = true;
             other.gameObject.GetComponent<SkeleMelee>().Invoke("invincibleTimer", 1);
+        }
+
+        if (other.gameObject.tag == "Pestilence" && other.gameObject.GetComponent<Pestilence>().Invincible == false)
+        {
+            other.gameObject.GetComponent<Pestilence>().PestHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<Pestilence>().Invincible = true;
+            other.gameObject.GetComponent<Pestilence>().Invoke("invincibleTimer", 1);
+        }
+
+        if (other.gameObject.tag == "War" && other.gameObject.GetComponent<War>().Invincible == false)
+        {
+            other.gameObject.GetComponent<War>().WarHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<War>().Invincible = true;
+            other.gameObject.GetComponent<War>().Invoke("invincibleTimer", 1);
+        }
+
+        if (other.gameObject.tag == "Famine" && other.gameObject.GetComponent<Famine>().Invincible == false)
+        {
+            other.gameObject.GetComponent<Famine>().FamineHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<Famine>().Invincible = true;
+            other.gameObject.GetComponent<Famine>().Invoke("invincibleTimer", 1);
+        }
+
+        if (other.gameObject.tag == "Death" && other.gameObject.GetComponent<Death>().Invincible == false)
+        {
+            other.gameObject.GetComponent<Death>().DeathHealth += -(SwordDamage * DamageMult);
+            other.gameObject.GetComponent<Death>().Invincible = true;
+            other.gameObject.GetComponent<Death>().Invoke("invincibleTimer", 1);
         }
     }
 }
