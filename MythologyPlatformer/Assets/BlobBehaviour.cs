@@ -10,9 +10,12 @@ public class BlobBehaviour : MonoBehaviour {
 
     GameObject Player;
 
+    SpriteRenderer ThisSR;
+
     void Start()
     {
-       Player = GameObject.FindGameObjectWithTag("Player");
+        ThisSR = GetComponent<SpriteRenderer>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
@@ -26,5 +29,15 @@ public class BlobBehaviour : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }

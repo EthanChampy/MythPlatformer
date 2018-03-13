@@ -688,6 +688,26 @@ Prefab:
       propertyPath: m_TagString
       value: MegaBlob
       objectReference: {fileID: 0}
+    - target: {fileID: 212659021390325678, guid: 66edd875ac1476c47a9479b9a376785e,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212659021390325678, guid: 66edd875ac1476c47a9479b9a376785e,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212659021390325678, guid: 66edd875ac1476c47a9479b9a376785e,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212659021390325678, guid: 66edd875ac1476c47a9479b9a376785e,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114912115050930142, guid: 66edd875ac1476c47a9479b9a376785e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 66edd875ac1476c47a9479b9a376785e, type: 2}

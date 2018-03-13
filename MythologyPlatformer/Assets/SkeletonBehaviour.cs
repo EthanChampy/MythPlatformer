@@ -22,9 +22,11 @@ public class SkeletonBehaviour : MonoBehaviour {
     GameObject Player;
 
     public bool Invincible;
-    // Use this for initialization
+    SpriteRenderer ThisSR;
+
     void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         SkeleRB = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -63,6 +65,16 @@ public class SkeletonBehaviour : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }
 

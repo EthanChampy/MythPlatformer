@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -44,8 +45,12 @@ public class Player : MonoBehaviour
     public bool DeathBool = false;
     public int Lives = 3;
     public Animator Anim;
+
+    SpriteRenderer ThisSR;
+
     void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
         PlayerRigidBody = GetComponent<Rigidbody2D>();
         SpawnPoint = GameObject.Find("SpawnPoint");
@@ -53,6 +58,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Lives == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
 
         if (DeathBool == false)
@@ -176,12 +186,24 @@ public class Player : MonoBehaviour
                 Health += -1;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -1;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -228,12 +250,24 @@ public class Player : MonoBehaviour
                 Health += -2;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -2;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -248,12 +282,24 @@ public class Player : MonoBehaviour
                 Health += -5;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -5;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -268,12 +314,24 @@ public class Player : MonoBehaviour
                 Health += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -288,12 +346,24 @@ public class Player : MonoBehaviour
                 Health += -4;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -4;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -308,12 +378,24 @@ public class Player : MonoBehaviour
                 Health += -5;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -5;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -328,12 +410,24 @@ public class Player : MonoBehaviour
                 Health += -2;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -2;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -347,12 +441,24 @@ public class Player : MonoBehaviour
                 Health += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -366,12 +472,24 @@ public class Player : MonoBehaviour
                 Health += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -3;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -386,12 +504,24 @@ public class Player : MonoBehaviour
                 Health += -4;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -4;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
                 if (Armor < 0)
                 {
                     Armor = 0;
@@ -405,12 +535,24 @@ public class Player : MonoBehaviour
                 Health += -Health;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
             if (Armor > 0)
             {
                 Armor += -Armor;
                 Invincible = true;
                 Invoke("invincibleTimer", 1.5f);
+                Invoke("ColorOff", 0f);
+                Invoke("ColorOn", 0.15f);
+                Invoke("ColorOff", 0.3f);
+                Invoke("ColorOn", 0.45f);
+                Invoke("ColorOff", 0.6f);
+                Invoke("ColorOn", 0.75f);
             }
         }
     }
@@ -476,5 +618,15 @@ public class Player : MonoBehaviour
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }

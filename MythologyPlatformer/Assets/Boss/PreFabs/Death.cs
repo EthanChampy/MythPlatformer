@@ -29,8 +29,11 @@ public class Death : MonoBehaviour {
 
     public bool Invincible;
     // Use this for initialization
+    SpriteRenderer ThisSR;
+
     void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         AttackPart = 1;
         DeathRB = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -163,6 +166,16 @@ public class Death : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }
 

@@ -22,9 +22,12 @@ public class Pestilence : MonoBehaviour {
     private Vector3 NegativeScale = new Vector3(-1, 1, 1);
 
     public bool Invincible;
+
+    SpriteRenderer ThisSR;
     // Use this for initialization
     void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         PestRB = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -60,5 +63,15 @@ public class Pestilence : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }

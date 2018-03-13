@@ -22,9 +22,11 @@ public class MosqZombieBehaviour : MonoBehaviour {
     public GameObject Mosquito;
     
     public bool Invincible;
-    // Use this for initialization
-    void Start ()
+    SpriteRenderer ThisSR;
+
+    void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         ZombRB = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -60,6 +62,16 @@ public class MosqZombieBehaviour : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 
 }

@@ -12,9 +12,16 @@ public class SkeleMelee : MonoBehaviour {
     public Collider2D SkeleHitbox;
 
     public bool Invincible = false;
-	
-	// Update is called once per frame
-	void Update ()
+
+    SpriteRenderer ThisSR;
+
+    void Start()
+    {
+        ThisSR = GetComponent<SpriteRenderer>();
+    }
+
+        // Update is called once per frame
+        void Update ()
     {
         CountUp += Time.deltaTime;
 
@@ -42,5 +49,15 @@ public class SkeleMelee : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }

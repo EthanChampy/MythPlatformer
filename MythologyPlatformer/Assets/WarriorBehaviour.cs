@@ -19,9 +19,12 @@ public class WarriorBehaviour : MonoBehaviour {
 
     GameObject Player;
     public bool Invincible;
+    
+    SpriteRenderer ThisSR;
 
-    // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        ThisSR = GetComponent<SpriteRenderer>();
         Player = GameObject.FindGameObjectWithTag("Player");
         WarriorRB = GetComponent<Rigidbody2D>();
     }
@@ -56,5 +59,15 @@ public class WarriorBehaviour : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }

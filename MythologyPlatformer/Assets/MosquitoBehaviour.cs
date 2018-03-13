@@ -20,8 +20,11 @@ public class MosquitoBehaviour : MonoBehaviour {
     public float spawny;
 
     GameObject Player;
+    SpriteRenderer ThisSR;
+
     void Start()
     {
+        ThisSR = GetComponent<SpriteRenderer>();
         spawnx = transform.position.x;
         spawny = transform.position.y;
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -46,5 +49,15 @@ public class MosquitoBehaviour : MonoBehaviour {
     void invincibleTimer()
     {
         Invincible = false;
+    }
+
+    void ColorOn()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 255);
+    }
+
+    void ColorOff()
+    {
+        ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
     }
 }
