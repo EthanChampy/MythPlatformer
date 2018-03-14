@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     private int MaxHealth;
 
     private GameObject SpawnPoint;
+    GameObject AttackHitbox;
 
     public bool Invincible = false;
     public bool DeathBool = false;
@@ -57,6 +58,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Invoke("StatSet", 0.1f);
+        AttackHitbox = GameObject.Find("AttackHitbox");
         AudioSource = GetComponent<AudioSource>();
         ThisSR = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
@@ -229,6 +232,10 @@ public class Player : MonoBehaviour
     {
         if (Other.gameObject.name == "LevelChanger")
         {
+            PlayerPrefs.SetInt("Health", Health);
+            PlayerPrefs.SetInt("Armor", Armor);
+            PlayerPrefs.SetInt("Lives", Lives);
+            PlayerPrefs.SetInt("Damage", AttackHitbox.GetComponent<AttackHitbox>().DamageMult);
             SceneManager.LoadScene("MainLevel");
         }
 
@@ -621,6 +628,10 @@ public class Player : MonoBehaviour
     {
         if (Other.gameObject.name == "BossLevelTP" && Key == 4)
         {
+            PlayerPrefs.SetInt("Health", Health);
+            PlayerPrefs.SetInt("Armor", Armor);
+            PlayerPrefs.SetInt("Lives", Lives);
+            PlayerPrefs.SetInt("Damage", AttackHitbox.GetComponent<AttackHitbox>().DamageMult);
             SceneManager.LoadScene("BossLevel");
         }
 
@@ -693,5 +704,12 @@ public class Player : MonoBehaviour
     void ColorOff()
     {
         ThisSR.color = new Color(ThisSR.color.r, ThisSR.color.g, ThisSR.color.b, 0);
+    }
+
+    void StatSet()
+    {
+        Health = PlayerPrefs.GetInt("Health");
+        Armor = PlayerPrefs.GetInt("Armor");
+        Lives = PlayerPrefs.GetInt("Lives");
     }
 }

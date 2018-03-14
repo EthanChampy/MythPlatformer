@@ -11,6 +11,7 @@ public class AttackHitbox : MonoBehaviour {
 
     void Start()
     {
+        Invoke("SwordStatSet", 0.2f);
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -170,5 +171,10 @@ public class AttackHitbox : MonoBehaviour {
             other.gameObject.GetComponent<Death>().Invoke("ColorOff", 0.6f);
             other.gameObject.GetComponent<Death>().Invoke("ColorOn", 0.75f);
         }
+    }
+
+    void SwordStatSet()
+    {
+        DamageMult = PlayerPrefs.GetInt("Damage");
     }
 }
