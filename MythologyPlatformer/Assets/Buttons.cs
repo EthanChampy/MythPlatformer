@@ -14,4 +14,14 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void mainlevel()
+    {
+        SceneManager.LoadScene("MainLevel");
+    }
+
+    public void bosslevel()
+    {
+        SceneManager.LoadScene("BossLevel");
+    }
 }

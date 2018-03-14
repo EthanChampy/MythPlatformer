@@ -48,8 +48,16 @@ public class Player : MonoBehaviour
 
     SpriteRenderer ThisSR;
 
+    public AudioClip JumpSound;
+    public AudioClip AttackSound;
+    public AudioClip DamageSound;
+
+    AudioSource AudioSource;
+
+
     void Start()
     {
+        AudioSource = GetComponent<AudioSource>();
         ThisSR = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
         PlayerRigidBody = GetComponent<Rigidbody2D>();
@@ -121,7 +129,8 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             PlayerRigidBody.AddForce(new Vector2(0, JumpForce));
-            print("jump");
+            AudioSource.volume = 1;
+            AudioSource.PlayOneShot(JumpSound);
         }
     }
 
@@ -185,6 +194,8 @@ public class Player : MonoBehaviour
             {
                 Health += -1;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -197,6 +208,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -1;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -214,15 +227,22 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Other)
     {
+        if (Other.gameObject.name == "LevelChanger")
+        {
+            SceneManager.LoadScene("MainLevel");
+        }
+
         if (Other.gameObject.name == "Apples") //Health Item
         {
             if (Health == 5)
             {
                 Health = MaxHealth;
+                Destroy(Other.gameObject);
             }
             if (Health == 4)
             {
                 Health = MaxHealth;
+                Destroy(Other.gameObject);
             }
             if (Health < MaxHealth)
             {
@@ -249,6 +269,8 @@ public class Player : MonoBehaviour
             {
                 Health += -2;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -261,6 +283,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -2;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -281,6 +305,8 @@ public class Player : MonoBehaviour
             {
                 Health += -5;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -293,6 +319,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -5;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -313,6 +341,8 @@ public class Player : MonoBehaviour
             {
                 Health += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -325,6 +355,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -345,6 +377,8 @@ public class Player : MonoBehaviour
             {
                 Health += -4;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -357,6 +391,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -4;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -377,6 +413,8 @@ public class Player : MonoBehaviour
             {
                 Health += -5;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -389,6 +427,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -5;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -409,6 +449,8 @@ public class Player : MonoBehaviour
             {
                 Health += -2;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -421,6 +463,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -2;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -440,6 +484,8 @@ public class Player : MonoBehaviour
             {
                 Health += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -452,6 +498,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -471,6 +519,8 @@ public class Player : MonoBehaviour
             {
                 Health += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -483,6 +533,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -3;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -503,6 +555,8 @@ public class Player : MonoBehaviour
             {
                 Health += -4;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -515,6 +569,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -4;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -534,6 +590,8 @@ public class Player : MonoBehaviour
             {
                 Health += -Health;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -546,6 +604,8 @@ public class Player : MonoBehaviour
             {
                 Armor += -Armor;
                 Invincible = true;
+                AudioSource.volume = 0.5f;
+                AudioSource.PlayOneShot(DamageSound);
                 Invoke("invincibleTimer", 1.5f);
                 Invoke("ColorOff", 0f);
                 Invoke("ColorOn", 0.15f);
@@ -559,6 +619,11 @@ public class Player : MonoBehaviour
 
     void OnTriggerStay2D (Collider2D Other)
     {
+        if (Other.gameObject.name == "BossLevelTP" && Key == 4)
+        {
+            SceneManager.LoadScene("BossLevel");
+        }
+
         if (Other.gameObject.name == "FamineDoor" && Input.GetButtonDown("Up")) //Doors
         {
             this.gameObject.transform.position = new Vector3(-15.987f, 18.992f, 0);

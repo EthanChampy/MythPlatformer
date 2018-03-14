@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114393892457261548}
   - component: {fileID: 61391773958334378}
   - component: {fileID: 114731668648129038}
+  - component: {fileID: 82498563612005860}
   m_Layer: 8
   m_Name: Knight Sprite_0
   m_TagString: Player
@@ -119,6 +120,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.32}
   m_EdgeRadius: 0
+--- !u!82 &82498563612005860
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321071242415010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95117748210417382
 Animator:
   serializedVersion: 3
@@ -159,9 +240,15 @@ MonoBehaviour:
   JumpForce: 200
   Health: 6
   Armor: 0
+  Key: 0
   MaxHealth: 6
   Invincible: 0
+  DeathBool: 0
+  Lives: 3
   Anim: {fileID: 0}
+  JumpSound: {fileID: 8300000, guid: d9651387a81edc34fa136ba57f4af67d, type: 3}
+  AttackSound: {fileID: 8300000, guid: cecc9a26a39b8124fa1be2f63edeb151, type: 3}
+  DamageSound: {fileID: 8300000, guid: 1f8e42e7c3459e94d911e07678ed8f2c, type: 3}
 --- !u!114 &114731668648129038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,6 +264,7 @@ MonoBehaviour:
   AttackCurrCooldown: 0
   AttackMaxCooldown: 0.9
   AttackHitbox: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!212 &212189883473964100
 SpriteRenderer:
   m_ObjectHideFlags: 1

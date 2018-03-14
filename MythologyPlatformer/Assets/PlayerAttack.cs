@@ -25,6 +25,9 @@ public class PlayerAttack : MonoBehaviour {
         {
             if (Input.GetButtonDown("Attack") && !Attacking)
             {
+                GetComponent<AudioSource>().volume = 0.5f;
+                GetComponent<AudioSource>().PlayOneShot(GetComponent<Player>().AttackSound);
+                
                 Attacking = true;
                 AttackCurrCooldown = AttackMaxCooldown;
 
