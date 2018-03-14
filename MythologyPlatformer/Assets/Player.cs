@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     public int Key;
 
     [SerializeField]
-    private int MaxHealth;
+    public int MaxHealth;
 
     private GameObject SpawnPoint;
     GameObject AttackHitbox;
@@ -69,6 +69,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+        Physics2D.IgnoreCollision(AttackHitbox.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+        if (Health <= 0)
+        {
+            Health = 0;
+        }
         if (Lives == 0)
         {
             SceneManager.LoadScene("GameOver");
@@ -88,7 +95,7 @@ public class Player : MonoBehaviour
         {
             DeathBool = true;
             Anim.SetBool("DeathBool", DeathBool);
-            Invoke("Death", 0.9f);
+            Invoke("Death", 0.7f);
         }
 
         if (PlayerRigidBody.velocity.y < 0)
@@ -189,7 +196,9 @@ public class Player : MonoBehaviour
         {
             Armor = 0;
             DeathBool = true;
-            Invoke("Death", 0f);
+            PlayerRigidBody.velocity = new Vector2(0, 0);
+            Anim.SetBool("DeathBool", DeathBool);
+            Invoke("Death", 0.7f);
         }
         if (Other.gameObject.tag == "Mosquito" && Invincible == false)
         {
@@ -711,5 +720,25 @@ public class Player : MonoBehaviour
         Health = PlayerPrefs.GetInt("Health");
         Armor = PlayerPrefs.GetInt("Armor");
         Lives = PlayerPrefs.GetInt("Lives");
+    }
+
+    public void DoHealthCalc(int _health)
+    {
+        
+        if (Health + _health > MaxHealth)
+            Health = MaxHealth;
+        else
+            Health += _health;
+
+        if (Health < 0)
+            Health = 0;
+    }
+
+    public void DoArmorCalc(int _armor)
+    {
+            Armor += _armor;
+
+        if (Armor < 0)
+            Armor = 0;
     }
 }

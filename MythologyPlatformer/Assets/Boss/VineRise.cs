@@ -15,6 +15,7 @@ public class VineRise : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        TimeCount = 0;
         VineRB = GetComponent<Rigidbody2D>();
 	}
 	
@@ -23,7 +24,7 @@ public class VineRise : MonoBehaviour {
     {
         TimeCount += Time.deltaTime;
 
-        if (GameObject.Find("PestBoss") != null)
+        if (GameObject.Find("PestBoss(Clone)") != null)
         {
             if (TimeCount < TimeMoving && ScaleState == false)
             {

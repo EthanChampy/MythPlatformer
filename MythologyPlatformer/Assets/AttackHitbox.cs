@@ -19,12 +19,12 @@ public class AttackHitbox : MonoBehaviour {
     {
         if (Player.transform.localScale.x == 1)
         {
-            this.transform.position = Player.transform.position + new Vector3(0.1f,0,0);
+            this.transform.position = Player.transform.position + new Vector3(0.1f,0.05f,0);
         }
 
         if (Player.transform.localScale.x == -1)
         {
-            this.transform.position = Player.transform.position + new Vector3(-0.1f, 0, 0);
+            this.transform.position = Player.transform.position + new Vector3(-0.1f, 0.05f, 0);
         }
     }
     void OnTriggerEnter2D(Collider2D other)

@@ -23,6 +23,7 @@ TagManager:
   - MegaBlob
   - Famine
   - Death
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
