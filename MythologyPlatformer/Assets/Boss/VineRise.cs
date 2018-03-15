@@ -17,10 +17,18 @@ public class VineRise : MonoBehaviour {
     void Start () {
         TimeCount = 0;
         VineRB = GetComponent<Rigidbody2D>();
-	}
+        if (this.gameObject.name == ("Vine1(Clone)"))
+        {
+            ScaleState = false;
+        }
+        if (this.gameObject.name == ("Vine2(Clone)"))
+        {
+            ScaleState = true;
+        }
+    }
 	
 	// Update is called once per frame
-	void Update ()
+	void Update () //Move vines up and down
     {
         TimeCount += Time.deltaTime;
 
@@ -49,7 +57,7 @@ public class VineRise : MonoBehaviour {
             }
         }
 
-        else
+        else //Vine Destroyed
         {
             Destroy(this.gameObject);
         }

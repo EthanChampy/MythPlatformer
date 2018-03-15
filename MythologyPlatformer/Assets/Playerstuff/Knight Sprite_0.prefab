@@ -246,6 +246,8 @@ MonoBehaviour:
   DeathBool: 0
   Lives: 3
   Anim: {fileID: 0}
+  Pause: {fileID: 114556080422727346, guid: 9ce466471a8af7d438d0a73874b827e3, type: 2}
+  Overlay: {fileID: 114015564948418190, guid: 9ce466471a8af7d438d0a73874b827e3, type: 2}
   JumpSound: {fileID: 8300000, guid: d9651387a81edc34fa136ba57f4af67d, type: 3}
   AttackSound: {fileID: 8300000, guid: cecc9a26a39b8124fa1be2f63edeb151, type: 3}
   DamageSound: {fileID: 8300000, guid: 1f8e42e7c3459e94d911e07678ed8f2c, type: 3}

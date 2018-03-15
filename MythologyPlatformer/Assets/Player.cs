@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     AudioSource AudioSource;
 
 
-    void Start()
+    void Start() //When player spawns
     {
         Invoke("StatSet", 0.1f);
         AttackHitbox = GameObject.Find("AttackHitbox");
@@ -67,9 +67,8 @@ public class Player : MonoBehaviour
         SpawnPoint = GameObject.Find("SpawnPoint");
     }
 
-    void Update()
+    void Update() //Run every frame
     {
-
         Physics2D.IgnoreCollision(AttackHitbox.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         if (Health <= 0)
@@ -89,16 +88,16 @@ public class Player : MonoBehaviour
             Movement(horizontal);
         }
 
-        Anim.SetBool("Attack", GetComponent<PlayerAttack>().Attacking);
+        Anim.SetBool("Attack", GetComponent<PlayerAttack>().Attacking); //Sets bool for animator for attacks
 
-        if (Health <= 0)
+        if (Health <= 0) //Death
         {
             DeathBool = true;
             Anim.SetBool("DeathBool", DeathBool);
             Invoke("Death", 0.7f);
         }
 
-        if (PlayerRigidBody.velocity.y < 0)
+        if (PlayerRigidBody.velocity.y < 0) //Movement
         {
             PlayerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
@@ -130,7 +129,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Movement(float horizontal)
+    private void Movement(float horizontal) //Movement
     {
         Anim.SetFloat("MovementSpeed", Mathf.Abs(Input.GetAxis("Horizontal")));
         PlayerRigidBody.velocity = new Vector2(horizontal * MovementSpeed, PlayerRigidBody.velocity.y);
@@ -144,7 +143,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded() //Can You Jump?
     {
         if (PlayerRigidBody.velocity.y <= 0)
         {
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private void InputManager()
+    private void InputManager() //Jump
     {
         if (Input.GetButtonDown("Jump"))
         {
@@ -190,7 +189,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D Other)
+    void OnCollisionEnter2D(Collision2D Other) //Collisions! (I know it's the least optimised thing in existence, I apologise sincerely)
     {
         if (Other.gameObject.tag == "KillBox")
         {
@@ -237,7 +236,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D Other)
+    void OnTriggerEnter2D(Collider2D Other) //Collisions with triggers! (I know it's the least optimised thing in existence, I apologise sincerely)
     {
         if (Other.gameObject.name == "LevelChanger")
         {
